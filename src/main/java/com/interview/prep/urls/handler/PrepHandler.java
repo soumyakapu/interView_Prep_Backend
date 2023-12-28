@@ -18,4 +18,7 @@ public class PrepHandler {
 
         return ServerResponse.ok().body(prepUrlMono,PrepUrl.class);
     }
+    public Mono<ServerResponse> getAllUrls(ServerRequest serverRequest){
+        return ServerResponse.ok().body(prepService.getAll(),PrepUrl.class);
+    }
 }

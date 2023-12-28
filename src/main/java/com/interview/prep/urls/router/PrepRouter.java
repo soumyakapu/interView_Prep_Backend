@@ -14,6 +14,9 @@ public class PrepRouter {
     private PrepHandler prepHandler;
     @Bean
     public RouterFunction<ServerResponse> doRoute(PrepHandler prepHandler){
-        return RouterFunctions.route().POST("/api/v2/add",prepHandler::addUrl).build();
+        return RouterFunctions.route()
+                .POST("/api/v2/add",prepHandler::addUrl)
+                .GET("/api/v2/getAll",prepHandler::getAllUrls)
+                .build();
     }
 }
